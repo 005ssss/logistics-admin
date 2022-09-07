@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: test_route
+          uri: https://www.baidu.com/
+          predicates:
+            - Query=url,baidu
+        - id: package_route
+          uri: lb://logistics-package
+          predicates:
+            - Path=/api/pkg/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*),/$\{segment}
+        - id: admin_route
+          uri: lb://logistics-admin
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*),/renren-admin/$\{segment}

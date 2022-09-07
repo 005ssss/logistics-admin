@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.logistics.packages.dao.PkgImgDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.logistics.packages.entity.PkgImgEntity" id="pkgImgMap">
+        <result property="id" column="id"/>
+        <result property="imgNumber" column="img_number"/>
+        <result property="detectTime" column="detect_time"/>
+        <result property="detectDevice" column="detect_device"/>
+    </resultMap>
+
+
+</mapper>

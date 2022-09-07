@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.logistics</groupId>
+    <artifactId>logistics</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>logistics-admin-master</name>
+    <description>logistics system</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>logistics-package</module>
+        <module>logistics-order</module>
+        <module>logistics-store</module>
+        <module>logistics-finance</module>
+        <module>logistics-statistics</module>
+        <module>logistics-admin</module>
+        <module>logistics-common</module>
+    </modules>
+
+</project>
