@@ -4,11 +4,7 @@ import java.util.Arrays;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.logistics.packages.entity.PkgListEntity;
 import com.logistics.packages.service.PkgListService;
@@ -33,10 +29,15 @@ public class PkgListController {
     /**
      * 列表
      */
-    @RequestMapping("/list")
-    public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = pkgListService.queryPage(params);
+    @PostMapping("/list")
+    public R list(@RequestBody Map<String, Object> params){
+        PageUtils page = pkgListService.getList(params);
+        return R.ok().put("page", page);
+    }
 
+    @PostMapping("/last")
+    public R getLast(@RequestBody Map<String, Object> params){
+        PageUtils page = pkgListService.getLast(params);
         return R.ok().put("page", page);
     }
 

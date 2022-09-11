@@ -37,4 +37,36 @@ public class PkgImgEntity implements Serializable {
 	 */
 	private Integer detectDevice;
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getImgNumber() {
+		return imgNumber;
+	}
+
+	public void setImgNumber(String imgNumber) {
+		this.imgNumber = imgNumber;
+	}
+
+	public Date getDetectTime() {
+		return detectTime;
+	}
+
+	public void setDetectTime(Date detectTime) {
+		this.detectTime = detectTime;
+	}
+
+	public Integer getDetectDevice() {
+		return detectDevice;
+	}
+
+	public void setDetectDevice(Integer detectDevice) {
+		this.detectDevice = detectDevice;
+	}
+
 }

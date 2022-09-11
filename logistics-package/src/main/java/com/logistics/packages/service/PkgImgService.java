@@ -16,5 +16,7 @@ import java.util.Map;
 public interface PkgImgService extends IService<PkgImgEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    PageUtils getList(Map<String, Object> params);
 }
 

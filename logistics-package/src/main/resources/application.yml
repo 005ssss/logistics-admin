@@ -26,7 +26,7 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.logistocs.*.entity
+  typeAliasesPackage: com.logistics.*.entity
   global-config:
     #数据库相关配置
     db-config:
@@ -43,5 +43,4 @@ mybatis-plus:
     prefix:
     blobType: BLOB
     boolValue: TRUE
-
 

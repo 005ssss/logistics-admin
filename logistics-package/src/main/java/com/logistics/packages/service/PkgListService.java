@@ -16,5 +16,9 @@ import java.util.Map;
 public interface PkgListService extends IService<PkgListEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    PageUtils getList(Map<String, Object> params);
+
+    PageUtils getLast(Map<String, Object> params);
 }
 

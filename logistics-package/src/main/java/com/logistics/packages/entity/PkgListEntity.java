@@ -45,4 +45,51 @@ public class PkgListEntity implements Serializable {
 	 */
 	private Date detectTime;
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getImgNumber() {
+		return imgNumber;
+	}
+
+	public void setImgNumber(String imgNumber) {
+		this.imgNumber = imgNumber;
+	}
+
+	public String getPkgNumber() {
+		return pkgNumber;
+	}
+
+	public void setPkgNumber(String pkgNumber) {
+		this.pkgNumber = pkgNumber;
+	}
+
+	public Integer getPkgType() {
+		return pkgType;
+	}
+
+	public void setPkgType(Integer pkgType) {
+		this.pkgType = pkgType;
+	}
+
+	public Integer getDetectDevice() {
+		return detectDevice;
+	}
+
+	public void setDetectDevice(Integer detectDevice) {
+		this.detectDevice = detectDevice;
+	}
+
+	public Date getDetectTime() {
+		return detectTime;
+	}
+
+	public void setDetectTime(Date detectTime) {
+		this.detectTime = detectTime;
+	}
 }
