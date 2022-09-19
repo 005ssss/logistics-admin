@@ -15,3 +15,11 @@ spring:
         server-addr: 127.0.0.1:8848
   application:
     name: logistics-order
+  rabbitmq:
+    host: 192.168.56.10
+    port: 5672
+    virtual-host: /
+    publisher-confirm-type: correlated
+    publisher-returns: true
+    template:
+      mandatory: true

@@ -12,7 +12,7 @@ spring:
     druid:
       #MySQL
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/logistics_package?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+      url: jdbc:mysql://192.168.56.10:3306/logistics_package?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
       username: root
       password: 991010
   cloud:
@@ -21,6 +21,14 @@ spring:
         server-addr: 127.0.0.1:8848
   application:
     name: logistics-package
+  redis:
+    host: 192.168.56.10
+    port: 6379
+  cache:
+    type: redis
+    redis:
+      time-to-live: 3600000
+      cache-null-values: true
 
 #mybatis
 mybatis-plus:

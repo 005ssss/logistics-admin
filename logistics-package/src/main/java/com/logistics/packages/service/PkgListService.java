@@ -20,5 +20,7 @@ public interface PkgListService extends IService<PkgListEntity> {
     PageUtils getList(Map<String, Object> params);
 
     PageUtils getLast(Map<String, Object> params);
+
+    Map<String, Object> getTotalCount();
 }
 

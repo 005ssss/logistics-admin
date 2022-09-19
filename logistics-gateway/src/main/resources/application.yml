@@ -18,3 +18,7 @@ spring:
             - Path=/api/**
           filters:
             - RewritePath=/api/?(?<segment>.*),/renren-admin/$\{segment}
+        - id: logistics_host_route
+          uri: http://localhost:8001/
+          predicates:
+            - Host=**.logistics.com,logistics.com

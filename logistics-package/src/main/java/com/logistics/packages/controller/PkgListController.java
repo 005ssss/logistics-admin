@@ -1,8 +1,9 @@
 package com.logistics.packages.controller;
 
-import java.util.Arrays;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,6 +81,12 @@ public class PkgListController {
 		pkgListService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+
+    @GetMapping("/total")
+    public R getTotal(){
+
+        return R.ok().put("result", pkgListService.getTotalCount());
     }
 
 }

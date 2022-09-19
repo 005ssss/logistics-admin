@@ -8,10 +8,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.UUID;
 
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,6 +23,8 @@ public class MybatisTest {
     @Autowired
     private PkgImgDao pkgImgDao;
 
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
 
     @Test
     public void testSelect(){
@@ -31,5 +36,14 @@ public class MybatisTest {
         page.setTotal(60);
         System.out.println(page.getSize());
         System.out.println(page.getPages());
+    }
+
+    @Test
+    public void testRedis(){
+        ValueOperations<String, String> ops = stringRedisTemplate.opsForValue();
+        ops.set("test", "1234"+UUID.randomUUID().toString());
+        String s = ops.get("test");
+        System.out.println(s);
+
     }
 }

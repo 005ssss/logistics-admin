@@ -16,5 +16,7 @@ import java.util.Map;
 public interface PkgProhibitService extends IService<PkgProhibitEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    Map<String, Long> getTotalCount();
 }
 
