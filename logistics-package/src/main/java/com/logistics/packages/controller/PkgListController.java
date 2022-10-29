@@ -1,5 +1,6 @@
 package com.logistics.packages.controller;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -31,7 +32,7 @@ public class PkgListController {
      * 列表
      */
     @PostMapping("/list")
-    public R list(@RequestBody Map<String, Object> params){
+    public R list(@RequestBody Map<String, Object> params) throws ParseException {
         PageUtils page = pkgListService.getList(params);
         return R.ok().put("page", page);
     }

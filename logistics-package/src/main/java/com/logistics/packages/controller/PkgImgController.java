@@ -1,5 +1,6 @@
 package com.logistics.packages.controller;
 
+import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -30,7 +31,7 @@ public class PkgImgController {
      * 列表
      */
     @PostMapping("/list")
-    public R list(@RequestBody Map<String, Object> params){
+    public R list(@RequestBody Map<String, Object> params) throws ParseException {
         PageUtils page = pkgImgService.getList(params);
 
         return R.ok().put("page", page);

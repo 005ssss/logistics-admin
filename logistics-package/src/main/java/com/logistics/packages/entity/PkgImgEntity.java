@@ -36,6 +36,30 @@ public class PkgImgEntity implements Serializable {
 	 * 
 	 */
 	private Integer detectDevice;
+	/**
+	 *
+	 */
+	private Integer pkgType;
+	/**
+	 *
+	 */
+	private Integer dao;
+	/**
+	 *
+	 */
+	private Integer qiang;
+	/**
+	 *
+	 */
+	private Integer qianzi;
+	/**
+	 *
+	 */
+	private Integer banshou;
+	/**
+	 *
+	 */
+	private Integer jiandao;
 
 	public Integer getId() {
 		return id;
@@ -69,4 +93,51 @@ public class PkgImgEntity implements Serializable {
 		this.detectDevice = detectDevice;
 	}
 
+	public Integer getPkgType() {
+		return pkgType;
+	}
+
+	public void setPkgType(Integer pkgType) {
+		this.pkgType = pkgType;
+	}
+
+	public Integer getDao() {
+		return dao;
+	}
+
+	public void setDao(Integer dao) {
+		this.dao = dao;
+	}
+
+	public Integer getQiang() {
+		return qiang;
+	}
+
+	public void setQiang(Integer qiang) {
+		this.qiang = qiang;
+	}
+
+	public Integer getQianzi() {
+		return qianzi;
+	}
+
+	public void setQianzi(Integer qianzi) {
+		this.qianzi = qianzi;
+	}
+
+	public Integer getBanshou() {
+		return banshou;
+	}
+
+	public void setBanshou(Integer banshou) {
+		this.banshou = banshou;
+	}
+
+	public Integer getJiandao() {
+		return jiandao;
+	}
+
+	public void setJiandao(Integer jiandao) {
+		this.jiandao = jiandao;
+	}
 }

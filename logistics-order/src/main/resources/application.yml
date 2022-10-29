@@ -6,12 +6,14 @@ spring:
     druid:
       #MySQL
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/logistics_package?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+      url: jdbc:mysql://192.168.56.10:3306/logistics_order?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
       username: root
       password: 991010
   cloud:
     nacos:
       discovery:
+        server-addr: 127.0.0.1:8848
+      config:
         server-addr: 127.0.0.1:8848
   application:
     name: logistics-order
@@ -23,3 +25,8 @@ spring:
     publisher-returns: true
     template:
       mandatory: true
+  task:
+    execution:
+      pool:
+        core-size: 5
+        max-size: 20

@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.logistics.common.utils.PageUtils;
 import com.logistics.packages.entity.PkgListEntity;
 
+import java.text.ParseException;
 import java.util.Map;
 
 /**
@@ -17,7 +18,7 @@ public interface PkgListService extends IService<PkgListEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
 
-    PageUtils getList(Map<String, Object> params);
+    PageUtils getList(Map<String, Object> params) throws ParseException;
 
     PageUtils getLast(Map<String, Object> params);
 

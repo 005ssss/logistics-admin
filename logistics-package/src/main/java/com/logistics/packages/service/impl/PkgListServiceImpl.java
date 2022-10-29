@@ -3,15 +3,18 @@ package com.logistics.packages.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.logistics.packages.entity.PkgImgEntity;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -48,13 +51,32 @@ public class PkgListServiceImpl extends ServiceImpl<PkgListDao, PkgListEntity> i
     }
 
     @Override
-    public PageUtils getList(Map<String, Object> params) {
+    public PageUtils getList(Map<String, Object> params) throws ParseException {
         int pageSize = (int)params.get("limit");
         int currPage = (int)params.get("page");
-        long totalCount = pkgListDao.selectCount(null);
         Page<PkgListEntity> page= Page.of(currPage, pageSize);
-        pkgListDao.selectPage(page, new QueryWrapper<PkgListEntity>().orderByDesc("id"));
-        page.setTotal(totalCount);
+        QueryWrapper<PkgListEntity> wrapper = new QueryWrapper<PkgListEntity>().orderByDesc("id");
+        //判断日期范围是否为空
+        if(params.get("date") != null){
+            ArrayList<String> date = (ArrayList<String>)params.get("date");
+            String format = "yyyy-MM-dd HH:mm:ss";
+            SimpleDateFormat sdf = new SimpleDateFormat(format);
+            Date start = sdf.parse(date.get(0) + " 00:00:00");
+            Date end = sdf.parse(date.get(1) + " 23:59:59");
+            wrapper.ge("detect_time",start).le("detect_time",end);
+        }
+        //判断订单号是否为空
+        String order = (String)params.get("order");
+        if(!org.apache.commons.lang3.StringUtils.isBlank(order)){
+            wrapper.eq("id", order);
+        }
+        //判断检测结果是否为空
+        String result = (String)params.get("result");
+        if(!org.apache.commons.lang3.StringUtils.isBlank(result)){
+            wrapper.eq("pkg_type", result);
+        }
+        pkgListDao.selectPage(page, wrapper);
+        long totalCount = pkgListDao.selectCount(wrapper);
         return new PageUtils(page);
     }
 
