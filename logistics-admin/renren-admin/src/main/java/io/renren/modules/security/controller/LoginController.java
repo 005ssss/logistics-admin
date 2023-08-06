@@ -84,6 +84,7 @@ public class LoginController {
 
 		//用户信息
 		SysUserDTO user = sysUserService.getByUsername(login.getUsername());
+		System.out.println(user.getMobile());
 
 		SysLogLoginEntity log = new SysLogLoginEntity();
 		log.setOperation(LoginOperationEnum.LOGIN.value());

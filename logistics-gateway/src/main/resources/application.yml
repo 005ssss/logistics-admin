@@ -18,10 +18,22 @@ spring:
             - Path=/api/order/**
           filters:
             - RewritePath=/api/?(?<segment>.*),/$\{segment}
+        - id: detect_route
+          uri: lb://logistics-detect
+          predicates:
+            - Path=/api/detect/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*),/$\{segment}
         - id: store_route
           uri: lb://logistics-store
           predicates:
             - Path=/api/store/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*),/$\{segment}
+        - id: torch_route
+          uri: lb://logistics-torch
+          predicates:
+            - Path=/api/torch/**
           filters:
             - RewritePath=/api/?(?<segment>.*),/$\{segment}
         - id: admin_route

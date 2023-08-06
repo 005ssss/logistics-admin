@@ -54,3 +54,6 @@ mybatis-plus:
     blobType: BLOB
     boolValue: TRUE
 
+logistics:
+  path:
+    save: C:/Users/HP/Desktop/result/

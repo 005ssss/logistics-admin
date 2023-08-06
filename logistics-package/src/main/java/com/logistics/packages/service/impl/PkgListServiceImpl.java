@@ -162,4 +162,18 @@ public class PkgListServiceImpl extends ServiceImpl<PkgListDao, PkgListEntity> i
         return calendar;
     }
 
+    public void putDetectImage(int deviceId, String image_name) {
+        stringRedisTemplate.opsForValue().set(String.format("image_%d", deviceId), image_name, 1, TimeUnit.HOURS);
+
+    }
+
+    public String getDetectImage(int deviceId) {
+        String image_name = stringRedisTemplate.opsForValue().get(String.format("image_%d", deviceId));
+        if(!StringUtils.hasLength(image_name)){
+            return String.format("%d/3D.png", deviceId);
+        }
+        return image_name;
+
+    }
+
 }

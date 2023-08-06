@@ -23,5 +23,9 @@ public interface PkgListService extends IService<PkgListEntity> {
     PageUtils getLast(Map<String, Object> params);
 
     Map<String, Object> getTotalCount();
+
+    void putDetectImage(int deviceId, String image_name);
+
+    String getDetectImage(int deviceId);
 }
 
